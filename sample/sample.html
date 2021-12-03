@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta charset="utf-8">
+			<title>Inspector sample</title>
+			<script src="../node_modules/@ckeditor/ckeditor5-build-decoupled-document/build/ckeditor.js"></script>
+			<script src="../build/miniinspector.js"></script>
+	</head>
+	<body>
+		<div id="first-editor-content">
+			<h2>The three greatest things you learn from traveling</h2>
+			<p>Like <a href="https://ckeditor.com">all the <b>great things on earth</b> traveling teaches</a> us by example. Here are some <br>of the most precious lessons I’ve
+				learned over the years of traveling.</p>
+			<p>Going to a new place can be quite terrifying. While change and uncertainty makes us scared, traveling teaches us how
+				ridiculous it is to be afraid of something before it happens. The moment you face your fear and see there was
+				nothing to be afraid of, is the moment you discover bliss.</p>
+		</div>
+
+		<h2>Mini inspector</h2>
+
+		<div id="mini-inspector-container"></div>
+
+		<script>
+			DecoupledEditor
+				.create( document.querySelector( '#first-editor-content' ) )
+				.then( editor => {
+					window.editor = editor;
+					document.body.insertBefore( editor.ui.view.toolbar.element, editor.ui.getEditableElement() );
+
+					MiniCKEditorInspector.attach( editor, document.querySelector( '#mini-inspector-container' ) );
+				} )
+				.catch( error => {
+					console.error( error );
+				} );
+		</script>
+	</body>
+	<style>
+		body {
+			padding: 2em;
+		}
+	</style>
+</html>

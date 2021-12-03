@@ -1,0 +1,33 @@
+.ck-inspector.ck-mini-inspector {
+	border: 1px solid #ccc;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+
+	& > * {
+		height: auto;
+		background: white;
+
+		&:first-child::before {
+			content: "Model";
+		}
+
+		&:last-child::before {
+			content: "View";
+		}
+
+		&:first-child::before,
+		&:last-child::before {
+			background: #eee;
+			font-weight: bold;
+			display: block;
+			padding: .2em .5em;
+			margin-bottom: .5em;
+		}
+	}
+
+	& > * + * {
+		border-left: 1px solid #ccc;
+	}
+}
